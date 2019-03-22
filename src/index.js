@@ -9,14 +9,14 @@ $(document).ready(function() {
   $("#doctor").submit(function(event) {
     event.preventDefault();
     const sickInput = $("#sick").val();
-    // $('#issue').val("");
+    $('#sick').val("");
 
     console.log(sickInput);
-    // Promise.then(function(response) {
-    //   let body = JSON.parse(response);
-    //   $('.area').text('Here are doctors in ${city} is ${body.main.humidity}%');
-    // }, function(error) {
-    //   $('.showErrors').text(`There was an error processing your request: ${error.message}`);
-    // });
+    Promise.then(function(response) {
+      let body = JSON.parse(response);
+      $('.area').text('Here are doctors in portlan that specialize in ${body.main}%');
+    }, function(error) {
+      $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+    });
   });
 });
