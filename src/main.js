@@ -1,8 +1,8 @@
 import 'bootstrap';
 import $ from 'jquery';
 import '../node_modules/bootstrap/scss/bootstrap.scss';
-import './sass/styles.scss';
-import { FindDoctor } from './business.js';
+// import './styles.scss';
+import { FindDoctor } from './business-logic.js';
 
 
 $(document).ready(function() {
@@ -10,6 +10,7 @@ $(document).ready(function() {
     event.preventDefault();
     const issueInput = $('#issue').val();
     $('#issue').val("");
+    console.log('#issue');
 
     promise.then(function(response) {
       let body = JSON.parse(response);
