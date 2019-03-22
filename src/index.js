@@ -2,21 +2,21 @@ import 'bootstrap';
 import $ from 'jquery';
 import '../node_modules/bootstrap/scss/bootstrap.scss';
 import './css/styles.css';
-import { FindDoctor } from './business-logic.js';
+import { FindDoctor } from './business.js';
 
 
 $(document).ready(function() {
-  $('#doctorLocation').submit(function() {
+  $("#doctor").submit(function(event) {
     event.preventDefault();
-    const issueInput = $('#issue').val();
-    $('#issue').val("");
-    console.log(issueInput);
+    const sickInput = $("#sick").val();
+    // $('#issue').val("");
 
-    Promise.then(function(response) {
-      let body = JSON.parse(response);
-      $('.area').text('Here are doctors in ${city} is ${body.main.humidity}%');
-    }, function(error) {
-      $('.showErrors').text(`There was an error processing your request: ${error.message}`);
-    });
+    console.log(sickInput);
+    // Promise.then(function(response) {
+    //   let body = JSON.parse(response);
+    //   $('.area').text('Here are doctors in ${city} is ${body.main.humidity}%');
+    // }, function(error) {
+    //   $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+    // });
   });
 });
