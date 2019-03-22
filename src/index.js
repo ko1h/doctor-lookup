@@ -1,7 +1,7 @@
 import 'bootstrap';
 import $ from 'jquery';
 import '../node_modules/bootstrap/scss/bootstrap.scss';
-// import './styles.scss';
+import './css/styles.css';
 import { FindDoctor } from './business-logic.js';
 
 
@@ -10,9 +10,9 @@ $(document).ready(function() {
     event.preventDefault();
     const issueInput = $('#issue').val();
     $('#issue').val("");
-    console.log('#issue');
+    console.log(issueInput);
 
-    promise.then(function(response) {
+    Promise.then(function(response) {
       let body = JSON.parse(response);
       $('.area').text('Here are doctors in ${city} is ${body.main.humidity}%');
     }, function(error) {
