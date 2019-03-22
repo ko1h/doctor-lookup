@@ -5,7 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports= {
-  entry: './src/weather-interface.js',
+  entry: './src/doctor-interface.js',
   output: {
     filename:'bundle.js',
     path: path.resolve(__dirname,'dist')
@@ -20,7 +20,7 @@ module.exports= {
     new Dotenv(),
     new HtmlWebpackPlugin({
       title: 'Journal',
-      template: './src/weather.html',
+      template: './src/doctor.html',
       inject: 'body'
     })
   ],
