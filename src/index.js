@@ -10,6 +10,7 @@ $(document).ready(function() {
     event.preventDefault();
     const sickInput = $("#sick").val();
     console.log(sickInput);
+    const doctorInput = $("#doctor").val();
 
     const findDoctorInfo = new FindDoctor();
     console.log(findDoctorInfo);
@@ -19,9 +20,12 @@ $(document).ready(function() {
 
     doctorInfoOutput.then(function(response) {
       let body = JSON.parse(response);
-      console.log("this is JSON" + body);
+      console.log(body);
+      let firstName = (`${body.data[0].profile}`);
 
-      $('#results').text(`Here are doctors in portland that specialize in ${body.profile.first_name}`);
+      let info = firstName;
+
+      $('#results').text(info);
     });
   });
 });
