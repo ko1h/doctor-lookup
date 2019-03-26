@@ -9,12 +9,19 @@ $(document).ready(function() {
   $("#doctor").submit(function(event) {
     event.preventDefault();
     const sickInput = $("#sick").val();
-    $('#sick').val("");
-
     console.log(sickInput);
-    Promise.then(function(response) {
+
+    const findDoctorInfo = new FindDoctor();
+    console.log(findDoctorInfo);
+    let doctorInfoOutput = findDoctorInfo.doctorInfo(sickInput);
+    console.log(doctorInfoOutput);
+
+
+    doctorInfoOutput.then(function(response) {
       let body = JSON.parse(response);
-      $('.area').text('Here are doctors in portlan that specialize in ${body.main}%');
+      console.log(body);
+
+      $('.area').text('Here are doctors in portland that specialize in ${body.main}%');
     }, function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);
     });
