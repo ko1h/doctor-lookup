@@ -19,11 +19,9 @@ $(document).ready(function() {
 
     doctorInfoOutput.then(function(response) {
       let body = JSON.parse(response);
-      console.log(body);
+      console.log("this is JSON" + body);
 
-      $('.area').text('Here are doctors in portland that specialize in ${body.main}%');
-    }, function(error) {
-      $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+      $('#results').text(`Here are doctors in portland that specialize in ${body.profile.first_name}`);
     });
   });
 });
