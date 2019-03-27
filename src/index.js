@@ -13,8 +13,13 @@ $(document).ready(function() {
     const doctorInput = $("#doctor").val();
     console.log(doctorInput);
 
+<<<<<<< HEAD
     const findDoctorInfo = new FindDoctor();
     let doctorInfoOutput = findDoctorInfo.doctorInfo(sickInput, doctorInput);
+=======
+    let findDoctorInfo = new FindDoctor();
+    let doctorInfoOutput = findDoctorInfo.doctorInfo(sickInput);
+>>>>>>> 1b357a91ff29f6f430636b01bfae39540b849f03
 
 
     doctorInfoOutput.then(function(response) {
@@ -41,12 +46,17 @@ $(document).ready(function() {
         phoneNumber =body.data[i].practices[0].phones[0].number;
 
 
+<<<<<<< HEAD
        info.push('<li>'+ firstName + " " + lastName  +'</li>'+ '<p>'+ street + '<br>' + city + " " + state + " " + zip + '<br>' + "Phone number: "+phoneNumber +'</p>')
        console.log("this is info" + info);
+=======
+       info.push('<p>'+ firstName + " " + lastName + '<br>'  + street + '<br>' + city + " " + state + " " + zip + '<br>' + "Phone number: "+phoneNumber +'</p>')
+       console.log(info);
+>>>>>>> 1b357a91ff29f6f430636b01bfae39540b849f03
       }
 
 
-        $('#nameResults').html(info);
+      $('#nameResults').html(info);
 
     },
     function(error){
