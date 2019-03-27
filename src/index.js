@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     doctorInfoOutput.then(function(response) {
       let body = JSON.parse(response);
-      console.log("this is JSON" + body);
+      console.log(body);
 
       $('#results').text(`Here are doctors in portland that specialize in ${body.profile.first_name}`);
     });
