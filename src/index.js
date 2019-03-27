@@ -20,15 +20,37 @@ $(document).ready(function() {
 
     doctorInfoOutput.then(function(response) {
       let body = JSON.parse(response);
-      console.log(body);
-<<<<<<< HEAD
-=======
-      let firstName = (`${body.data[0].profile}`);
->>>>>>> 93aab4306a85ce36c05c72cda50df2a8e78f0b66
 
-      let info = firstName;
+      let firstName = [];
+      let lastName = [];
+      let street = [];
+      let city = [];
+      let state = [];
+      let zip = [];
+      let phoneNumber = [];
+      var info = [];
 
-      $('#results').text(info);
+      for(let i = 0; i < body.data.length; i++) {
+        firstName = body.data[i].profile.first_name;
+        lastName = body.data[i].profile.last_name;
+
+        street =body.data[i].practices[0].visit_address.street;
+        city =body.data[i].practices[0].visit_address.city;
+        state =body.data[i].practices[0].visit_address.state;
+        zip =body.data[i].practices[0].visit_address.zip;
+        phoneNumber =body.data[i].practices[0].phones[0].number;
+
+
+       info.push('<li>'+ firstName + " " + lastName  +'</li>'+ '<p>'+ street + '<br>' + city + " " + state + " " + zip + '<br>' + "Phone number: "+phoneNumber +'</p>')
+       console.log(info);
+      }
+
+
+        $('#nameResults').html(info);
+
+    },
+    function(error){
+    $('.showErrors').text(`There was an error processing your request: ${error.message}`);
     });
   });
 });
