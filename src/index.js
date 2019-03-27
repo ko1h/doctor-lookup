@@ -6,20 +6,20 @@ import { FindDoctor } from './business.js';
 
 
 $(document).ready(function() {
-  $("#doctor").submit(function(event) {
+  $("#doctor-form").submit(function(event) {
     event.preventDefault();
     const sickInput = $("#sick").val();
-    console.log(sickInput);
+
     const doctorInput = $("#doctor").val();
+    console.log(doctorInput);
 
     const findDoctorInfo = new FindDoctor();
-    console.log(findDoctorInfo);
-    let doctorInfoOutput = findDoctorInfo.doctorInfo(sickInput);
-    console.log(doctorInfoOutput);
+    let doctorInfoOutput = findDoctorInfo.doctorInfo(sickInput, doctorInput);
 
 
     doctorInfoOutput.then(function(response) {
       let body = JSON.parse(response);
+      console.log(body);
 
       let firstName = [];
       let lastName = [];
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 
        info.push('<li>'+ firstName + " " + lastName  +'</li>'+ '<p>'+ street + '<br>' + city + " " + state + " " + zip + '<br>' + "Phone number: "+phoneNumber +'</p>')
-       console.log(info);
+       console.log("this is info" + info);
       }
 
 
