@@ -12,14 +12,13 @@ $(document).ready(function() {
     console.log(sickInput);
     const doctorInput = $("#doctor").val();
 
-    const findDoctorInfo = new FindDoctor();
-    console.log(findDoctorInfo);
+    let findDoctorInfo = new FindDoctor();
     let doctorInfoOutput = findDoctorInfo.doctorInfo(sickInput);
-    console.log(doctorInfoOutput);
 
 
     doctorInfoOutput.then(function(response) {
       let body = JSON.parse(response);
+      console.log(body);
 
       let firstName = [];
       let lastName = [];
@@ -41,12 +40,12 @@ $(document).ready(function() {
         phoneNumber =body.data[i].practices[0].phones[0].number;
 
 
-       info.push('<li>'+ firstName + " " + lastName  +'</li>'+ '<p>'+ street + '<br>' + city + " " + state + " " + zip + '<br>' + "Phone number: "+phoneNumber +'</p>')
+       info.push('<p>'+ firstName + " " + lastName + '<br>'  + street + '<br>' + city + " " + state + " " + zip + '<br>' + "Phone number: "+phoneNumber +'</p>')
        console.log(info);
       }
 
 
-        $('#nameResults').html(info);
+      $('#nameResults').html(info);
 
     },
     function(error){
