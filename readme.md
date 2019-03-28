@@ -6,9 +6,13 @@
 
 ## Description
 
-* _The purpose of this project is to have a user enter a medical issue and it will return doctors information around their location_
+* _The purpose of this project is to have a user enter a medical issue or doctor's last name and it will return doctors information around their location_
 
-
+## Specs
+* _User can enter in a symptom_
+* _User can enter a doctors last name_
+* _Program returns Doctor information that holds. Doctors first and last name, contact info._
+* _If user enters a symptom that the API cannot find a result_
 
 ## Setup/Installation Requirements
 
