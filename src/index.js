@@ -11,20 +11,18 @@ $(document).ready(function() {
     const sickInput = $("#sick").val();
 
     const doctorInput = $("#doctor").val();
-    console.log(doctorInput);
+    console.log("doctorInput");
 
-<<<<<<< HEAD
     const findDoctorInfo = new FindDoctor();
     let doctorInfoOutput = findDoctorInfo.doctorInfo(sickInput, doctorInput);
-=======
-    let findDoctorInfo = new FindDoctor();
-    let doctorInfoOutput = findDoctorInfo.doctorInfo(sickInput);
->>>>>>> 1b357a91ff29f6f430636b01bfae39540b849f03
 
 
     doctorInfoOutput.then(function(response) {
       let body = JSON.parse(response);
       console.log(body);
+      if(body.data.length < 1) {
+      $("#showErrors").text(`There was an error processing your request. Please try a different sympton:`)
+      } else {
 
       let firstName = [];
       let lastName = [];
@@ -46,21 +44,16 @@ $(document).ready(function() {
         phoneNumber =body.data[i].practices[0].phones[0].number;
 
 
-<<<<<<< HEAD
        info.push('<li>'+ firstName + " " + lastName  +'</li>'+ '<p>'+ street + '<br>' + city + " " + state + " " + zip + '<br>' + "Phone number: "+phoneNumber +'</p>')
        console.log("this is info" + info);
-=======
-       info.push('<p>'+ firstName + " " + lastName + '<br>'  + street + '<br>' + city + " " + state + " " + zip + '<br>' + "Phone number: "+phoneNumber +'</p>')
-       console.log(info);
->>>>>>> 1b357a91ff29f6f430636b01bfae39540b849f03
       }
 
 
-      $('#nameResults').html(info);
-
-    },
-    function(error){
-    $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+        $('#nameResults').html(info);
+      }
+      },
+      function(error){
+        $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+      });
     });
   });
-});
