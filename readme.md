@@ -19,7 +19,7 @@
 * _Use command line to clone repository_
 * _Github link https://github.com/ko1h/doctor_lookup.git_
 * _User will need to create a key from https://developer.betterdoctor.com/ or use the one that they already have_
-* _create a new folder name .env_
+* _create a new file name .env at the top level of your directory._
 * _Add exports.apiKey =[key inside here] to .env file__
 * _npm install_
 * _npm run start_
